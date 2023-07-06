@@ -17,5 +17,14 @@ def enter_num(text):
         print("Error! This is not integer number!")
     return a
 
-def create_list(n):
+def we_grow_bushes():
+    n = enter_num('number of bushes')
+    berries = [enter_num(f'number of berries per bush {i+1}') for i in range(n)]
+    return berries
 
+berries = we_grow_bushes()
+if len(berries)>3:
+    # функция которая считает суммы ягод
+else:
+    for i in range(len(berries)):
+    summa += berries[i]
