@@ -11,25 +11,29 @@ def enter_num(text):
         print("Error! This is not integer number!")
     return a
 
-def create_sort_list(n, text):
+def create_list(n, text):
     list_1 = [enter_num(text) for i in range(n)]
-    list_1.sort()
     return list_1
 
 
-def interselection(list_1, list_2):
-    set(list_1, list_2)
+def inter_section_sort(list_1, list_2):
+    list_1 = set(list_1)
+    list_2 = set(list_2)
     a = list_1.intersection(list_2)
+    a = list(a)
+    a.sort()
     return a
 
 
 def task():
     n = enter_num('number of list items')
     m = enter_num('number of list items')
-    list_1 = create_sort_list(n, 'list_1 item')
-    list_2 = create_sort_list(m, 'list_2 item')
-    a = interselection(list_1, list_2)
-    print(a)
+    list_1 = create_list(n, 'list_1 item')
+    list_2 = create_list(m, 'list_2 item')
+    list_3 = inter_section_sort(list_1, list_2)
+    # print('Numbers that occur in both sets {*list_3}', end=' : ')
+    print('Numbers that occur in both sets:>', end=' ')
+    print(*list_3)
 
 
 task()
