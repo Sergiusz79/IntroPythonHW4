@@ -8,23 +8,38 @@
 # собирает ягоды с этого куста и с двух соседних с ним. Напишите программу для нахождения 
 # максимального числа ягод, которое может собрать за один заход собирающий модуль, находясь перед 
 # некоторым кустом заданной во входном файле грядки.
-# number of bushes
+
 
 def enter_num(text):
     try:
-        a = int(input(f"Enter the {text}: \n"))
+        a = int(input(f"Enter the {text} :> "))
     except:
         print("Error! This is not integer number!")
     return a
 
-def we_grow_bushes():
-    n = enter_num('number of bushes')
-    berries = [enter_num(f'number of berries per bush {i+1}') for i in range(n)]
+def we_grow_berries(n):
+    berries = []
+    for i in range(n+2):
+        if i < n:
+            berries.append(enter_num(f'number of berries per bush {i+1}'))
+        else:
+            berries.append(berries[i - n])
     return berries
+    
+def sum_and_max(n, berries):
+    sum = []
+    for i in range(n):
+        sum.append(berries[i] + berries[i+1] + berries[i+2])
+    maximum = max(sum)
+    return maximum
 
-berries = we_grow_bushes()
-if len(berries)>3:
-    # функция которая считает суммы ягод
-else:
-    for i in range(len(berries)):
-    summa += berries[i]
+def task():
+    n = enter_num('number of bushes')
+    berries = we_grow_berries(n)
+    maximum = sum_and_max(n, berries)
+    print('The maximum number of berries that the collecting module')
+    print(f'can collect in one run is:>  {maximum}')
+    
+
+task()
+
